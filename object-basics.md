@@ -107,3 +107,65 @@ for (let key in user) {
     console.log(user[key]); // logs Tom, 20, 183
 }
 ```
+
+It should be noted that object properties are ordered in a special way. It means that integer properties are sorted and the rest appers in creation order.
+
+## Copying
+One of the key differences of an object from a primitive value is that objects are stored in memory and copied by 'reference'. A variable stores not the object itself but a reference to it.
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+const newUser = user; // copied the reference
+
+```
+Above example shows that two variables store a refence to the same object, not an independent copy of an object. So if we change an object using `newUser` reference, `user` reference will track this change too:
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+const newUser = user; // copied the reference
+
+newUser.name = 'Andrew';
+
+console.log(user.name) // logs Andrew, not Tom
+
+```
+### Comparing objects
+Two objects are equal, if two variables reference the same object:
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+const newUser = user; // copied the reference
+
+console.log(user === newUser) // logs true, reference to the same object
+
+```
+
+But if the reference to the same-looking object is stored in different variables, then these objects are not equal.
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+const newUser = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+console.log(user === newUser) // logs false, reference to different objects
+
+```
