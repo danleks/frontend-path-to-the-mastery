@@ -5,4 +5,5 @@ In order to create an object two types of declarations can be used:
 `const user = new Object();`
 * object literal
 `const user = {};`
+
 Usually an object is created with a literal.
