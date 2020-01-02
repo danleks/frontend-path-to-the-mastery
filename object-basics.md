@@ -67,7 +67,7 @@ console.log(user.name === undefined) // logs false, the property exists
 console.log(user.age === undefined) // logs true, no such a property
 ```
 
-There is also a special operatior `in` for checking if a property exists. It works according to a pettern below:
+There is also a special operatior `in` for checking if a property exists. It works according to a pattern below:
 ```javascript
 'key' in object
 ```
@@ -82,4 +82,13 @@ console.log('name' in user) // logs true, user.name exists
 console.log('age' in user) // logs false, no such a property
 ```
 
+In case when object property stores explicit `undefined`, strict comparison to `undefined` will fail as a property does exist:
+```javascript
+const user = {
+    name: indefined,
+};
 
+console.log(user.name === undefined) // logs true, but the property exists
+```
+
+In such a case opertor `in` can be used. It is a good practice not to explicitly assign non-existing values `undefined` but `null` for unknown values.
