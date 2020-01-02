@@ -169,3 +169,35 @@ const newUser = {
 console.log(user === newUser) // logs false, reference to different objects
 
 ```
+## Cloning and merging
+In order to copy an object and create an independent copy at the same time, we can use several techniques:
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+let userClone = {};
+
+for (let key on user) {
+    userClone[key] = user[key];
+};
+```
+
+Now we have two independent copies.
+
+We can also use the method `Object.assign()`:
+`Object.assign(dest, [src1, src2, src3...])`.
+It copies all the objects properties(src1, ..., srcN) to dest object:
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+const userClone = Object.assign({}, user);
+```
+
+In case we have references to other objects inside an object a copying by simply looping properties or using `Object.assign()` will not work as only references to inner objects will be copied. In such a case a deep copy is needed which can be created with help of `_.cloneDeep(obj)` from `lodash` library.
