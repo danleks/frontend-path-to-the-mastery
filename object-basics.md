@@ -85,10 +85,25 @@ console.log('age' in user) // logs false, no such a property
 In case when object property stores explicit `undefined`, strict comparison to `undefined` will fail as a property does exist:
 ```javascript
 const user = {
-    name: indefined,
+    name: undefined,
 };
 
 console.log(user.name === undefined) // logs true, but the property exists
 ```
 
-In such a case opertor `in` can be used. It is a good practice not to explicitly assign non-existing values `undefined` but `null` for unknown values.
+In such a case opertor `in` can be used. It is a good practice not to explicitly assign non-existing values `undefined`, but `null` for unknown values.
+
+## Looping through an object
+To loop through an object a `for..in` loop can be used:
+```javascript
+const user = {
+    name: 'Tom',
+    age: 20,
+    height: 183
+};
+
+for (let key in user) {
+    console.log(key); // logs name, age, height
+    console.log(user[key]); // logs Tom, 20, 183
+}
+```
