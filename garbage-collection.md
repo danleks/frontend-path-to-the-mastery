@@ -9,3 +9,33 @@ Reachability is the main concept of memory management in JS. Values that are usa
 * Vars and params of other funcs on the current chain of nested calls
 
 These values are called *roots*.
+
+2. Any other value is considered reachable when it is reached from a root by a reference or a chain of references. For example, if an object in local memory has a property that is referencing another object, that object is considered to be reachable.
+
+A background process that is monitoring all objects and removes those unreachable is called *garbage collection*.
+
+Some examples:
+```javascript
+// user has a reference to the object
+let user = {
+    name: 'Tom',
+    height: 183
+};
+```
+
+The example above demonstrates that the global var user keeps the reference to the object, thus making it reachable. If we overwrite the var, the reference is lost and the object can be garbage collected and deleted.
+```javascript
+// user is overwritten
+let user = null;
+```
+One more example with 2 references to the same obj:
+```javascript
+// user has a reference to the object
+let user = {
+    name: 'Tom',
+    height: 183
+};
+
+let newUser = user; // newUser also has reference to the same obj
+```
+Now we have 2 references to the object. If we delete one of the references: `let user = null` the object will be still reachable, thanks to the one more reference `newUser`.
