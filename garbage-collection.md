@@ -42,4 +42,4 @@ Now we have 2 references to the object. If we delete one of the references: `let
 
 It is important to note once again, that reachability is considered from the root value. So if the root value is no longer referencing objects, no matter how futher those objects are referencing each other, they will be garbage collected. 
 
-The end..
+The end...
