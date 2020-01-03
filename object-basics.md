@@ -202,4 +202,4 @@ const userClone = Object.assign({}, user);
 
 In case we have references to other objects inside an object, copying by simply looping through properties or using `Object.assign()` will not work, as only references to inner objects will be copied. In such a case a deep copy is needed, which can be created with help of `_.cloneDeep(obj)` from `lodash` library.
 
-The end...s
+The end.
