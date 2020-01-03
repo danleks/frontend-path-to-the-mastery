@@ -7,4 +7,5 @@ Reachability is the main concept of memory management in JS. Values that are usa
 * Global vars
 * Local vars and params of the current func
 * Vars and params of other funcs on the current chain of nested calls
+
 These values are called *roots*.
