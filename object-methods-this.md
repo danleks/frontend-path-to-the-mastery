@@ -12,7 +12,7 @@ user.sayHi = function(){
 
 Here a Functiuon Expression is used to create the function and then the value of the functiion is assigned to the property of the object. Later we can call it like this:
 ```javascript
-user.sayHi(); // shows aler with Hello
+user.sayHi(); // shows alert with Hello
 ```
 
 A pre-declared function can also be used as a method:
